@@ -1,0 +1,32 @@
+@import "../../../colors.scss";
+
+.btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-family: 'Inter', sans-serif;
+  background-color: $accent-100;
+  padding: 4px;
+  height: 40px;
+  width: 150px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 24px;
+  color: $bg-100;
+  cursor: pointer;
+  transition: background-color 0.3s;
+
+  .icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  &:hover {
+    background-color: $hover-100;
+  }
+  
+}
+
