@@ -1,151 +1,27 @@
+# HiringFrontEndAngular
 
-## Objetivo
-Desenvolva uma tabela que carrega dados de um JSON. A tabela deve permitir a edição, adição e exclusão de linhas. Os dados modificados devem ser refletidos no JSON local.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
 
-## Como começar
-Dar um fork no projeto, clonar o repositório em sua máquina local e criar um branch novo para o seu código.
+## Development server
 
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Regras de negócio
-•	Novos registros devem conter todos os campos obrigatórios (name, email, phone, department, role, dateJoined).
+## Code scaffolding
 
-•	O campo id deve ser gerado automaticamente ao adicionar um novo registro.
+Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-•	Qualquer campo de um registro existente pode ser editado, exceto o id.
+## Build
 
-•	Um registro pode ser excluído apenas se o usuário confirmar a ação (ex: através de um modal de confirmação).
+Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-•	A tabela deve permitir filtrar por department e role.
+## Running unit tests
 
-•	A ordenação pode ser feita por qualquer campo, em ordem crescente ou decrescente.
+Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-•	A tabela deve suportar paginação, exibindo no máximo 5 registros por página.
+## Running end-to-end tests
 
-•	O usuário deve poder exportar os registros visíveis em um arquivo CSV.
+Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-•	O CSV deve incluir apenas os registros da página atual se a paginação estiver ativa.
+## Further help
 
-•	O sistema deve permitir a busca de registros pelo name, email, ou phone.
-
-
-## Referências
-•	JSON de referência:
-
-```
-{
-  "data": [
-    {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "+1 555-555-5555",
-      "department": "Sales",
-      "role": "Sales Manager",
-      "dateJoined": "2022-01-15"
-    },
-    {
-      "id": 2,
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "phone": "+1 555-123-4567",
-      "department": "Engineering",
-      "role": "Software Engineer",
-      "dateJoined": "2023-03-22"
-    },
-    {
-      "id": 3,
-      "name": "Michael Brown",
-      "email": "michael.brown@example.com",
-      "phone": "+1 555-987-6543",
-      "department": "Marketing",
-      "role": "Marketing Coordinator",
-      "dateJoined": "2021-07-30"
-    },
-    {
-      "id": 4,
-      "name": "Emily Davis",
-      "email": "emily.davis@example.com",
-      "phone": "+1 555-654-3210",
-      "department": "Human Resources",
-      "role": "HR Specialist",
-      "dateJoined": "2020-11-05"
-    },
-    {
-      "id": 5,
-      "name": "William Johnson",
-      "email": "william.johnson@example.com",
-      "phone": "+1 555-321-4321",
-      "department": "Finance",
-      "role": "Financial Analyst",
-      "dateJoined": "2019-02-19"
-    },
-    {
-      "id": 6,
-      "name": "Olivia Taylor",
-      "email": "olivia.taylor@example.com",
-      "phone": "+1 555-789-1234",
-      "department": "Customer Support",
-      "role": "Support Specialist",
-      "dateJoined": "2021-05-18"
-    },
-    {
-      "id": 7,
-      "name": "James Wilson",
-      "email": "james.wilson@example.com",
-      "phone": "+1 555-456-7890",
-      "department": "IT",
-      "role": "System Administrator",
-      "dateJoined": "2022-09-12"
-    },
-    {
-      "id": 8,
-      "name": "Sophia Martinez",
-      "email": "sophia.martinez@example.com",
-      "phone": "+1 555-654-9876",
-      "department": "Legal",
-      "role": "Legal Advisor",
-      "dateJoined": "2020-02-24"
-    },
-    {
-      "id": 9,
-      "name": "David Lee",
-      "email": "david.lee@example.com",
-      "phone": "+1 555-321-8765",
-      "department": "Operations",
-      "role": "Operations Manager",
-      "dateJoined": "2018-08-03"
-    },
-    {
-      "id": 10,
-      "name": "Ava White",
-      "email": "ava.white@example.com",
-      "phone": "+1 555-654-4321",
-      "department": "Product",
-      "role": "Product Manager",
-      "dateJoined": "2023-01-10"
-    }
-  ]
-}
-```
-
-
-## Observações
-1. Utilizar Angular na versão 15.
-2. Utilização de typescript.
-3. Design de livre escolha.
-
-
-## Requisitos Técnicos para a entrega do teste
-
-•	Utilizar SASS
-
-•	O projeto deve ter uma documentação em readme ensinando a: 
-1. instalar o projeto na máquina (engines, versão de node, qual gerenciador de pacote usar)
-2. instalar as dependências do projeto
-3. rodar o ambiente de desenvolvimento
-4. rodar a build de deploy da aplicação.
-
-•	Hospedar o projeto em um servidor (Heroku, Vercel, Netlify)
-
-
-Boa sorte!
+To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
