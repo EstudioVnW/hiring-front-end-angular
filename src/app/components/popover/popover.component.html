@@ -1,0 +1,16 @@
+<div class="popover-container">
+  <button class="popover-trigger" (click)="togglePopover()">
+    <img src="../../../assets/images/svg/more.svg" alt="more" />
+  </button>
+
+  <div class="popover-content" *ngIf="isPopoverOpen">
+    <button class="popover-btn" (click)="handleEdit()">
+      Edit
+      <img src="../../../assets/images/svg/edit.svg" alt="icon for edit" class="icon"/>
+    </button>
+    <button class="popover-btn" (click)="handleDelete()">
+      Delete
+      <img src="../../../assets/images/svg/delete.svg" alt="icon for delete" class="icon"/>
+    </button>
+  </div>
+</div>
