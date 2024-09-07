@@ -1,0 +1,51 @@
+<div class="table-container">
+  <header class="table-header">
+    <div class="table-content">
+      <input  class="table-search" type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="filterData()"/>
+    </div>
+
+    <div class="table-actions">
+      <app-button iconPath="../../../assets/images/svg/add.svg" text="Add Employee"  (click)="openDialog()"></app-button>
+      <app-button iconPath="../../../assets/images/svg/export.svg" text="Export Employee"></app-button>
+    </div>
+  </header>
+
+  <table >
+    <thead >
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Department</th>
+      <th>Role</th>
+      <th>Date Joined</th>
+      <th>Actions</th>
+    </thead>
+    <tbody *ngIf="filteredEmployees.length > 0; else noResults">
+      <tr *ngFor="let employee of filteredEmployees">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.role}}</td>
+        <td>{{employee.dateJoined}}</td>
+        <td class="actions"><app-popover popoverId="{{employee.id}}"></app-popover> </td>
+      </tr>
+  
+  
+    </tbody>
+  </table>
+
+  <ng-template #noResults>
+    <p>No employees found</p>
+  </ng-template>
+</div>
+
+<app-dialog 
+  [isVisible]="isDialogVisible" 
+  (closeDialog)="onDialogClose()" 
+  title="Register employee" 
+  subtitle="Fill out the form below to add a new employee">
+  <app-form></app-form>
+</app-dialog>
