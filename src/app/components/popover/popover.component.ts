@@ -24,6 +24,7 @@ export class PopoverComponent {
         }
       }
     )
+    
   }
 
   togglePopover() { 
@@ -31,11 +32,13 @@ export class PopoverComponent {
     if (this.isPopoverOpen) {
       this.popoverService.openPopover(this.popoverId);
     }
+    console.log(this.popoverId)
   }
 
   handleEdit() {
     console.log('Action edit not implemented yet')
     this.isPopoverOpen = false;
+    console.log(this.popoverId)
   }
 
   handleDelete() {
