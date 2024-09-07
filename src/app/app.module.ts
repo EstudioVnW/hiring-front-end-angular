@@ -7,18 +7,27 @@ import { ButtonComponent } from './components/button/button.component';
 import { TableComponent } from './components/table/table.component';
 import { PopoverComponent } from './components/popover/popover.component';
 import { HttpClientModule } from '@angular/common/http';
+import { DialogComponent } from './components/dialog/dialog.component';
+import { FormComponent } from './components/form/form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './components/home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ButtonComponent,
     TableComponent,
-    PopoverComponent
+    PopoverComponent,
+    DialogComponent,
+    FormComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
