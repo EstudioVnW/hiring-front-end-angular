@@ -1,0 +1,10 @@
+<main class="home-container">
+  <app-dialog 
+    [isVisible]="isDialogVisible" 
+    (closeDialog)="onDialogClose()" 
+    title="Register employee"
+    subtitle="Fill out the form below to add a new employee">
+    <app-form></app-form>
+  </app-dialog>
+  <app-table></app-table>
+</main>
