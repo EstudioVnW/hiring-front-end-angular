@@ -1,0 +1,19 @@
+<div class="modal-container" *ngIf="isVisible">
+  <div class="modal-content">
+    <div class="modal-header">
+      <img src="../../../assets/images/svg/bin.svg" alt="bin icon">
+      <span class="close" (click)="closeModal()"><img src="../../../assets/images/svg/close.svg" alt="close icon"></span>
+
+    </div>
+
+    <div class="modal-body">
+      <h2 class="modal-title">Delete Employee</h2>
+      <p class="modal-text">Are you sure you want to delete this employee? This action cannot be undone.</p>
+    </div>
+    
+    <div class="modal-actions">
+      <button (click)="closeModal()" class="cancel-btn">Cancel</button>
+      <button (click)="confirm()" class="delete-btn">Delete</button>
+    </div>
+  </div>
+</div>
