@@ -1,0 +1,120 @@
+<router-outlet></router-outlet>
+
+<div class="search-filters-container">
+  <div class="filters-container">
+    <div class="filter-group">
+      <label for="departmentFilter">Department:</label>
+      <select id="departmentFilter" [(ngModel)]="selectedDepartment" (change)="applyFilters()">
+        <option value="">All Departments</option>
+        <option *ngFor="let department of availableDepartments" [value]="department">{{ department }}</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label for="roleFilter">Role:</label>
+      <select id="roleFilter" [(ngModel)]="selectedRole" (change)="applyFilters()">
+        <option value="">All Roles</option>
+        <option *ngFor="let role of availableRoles" [value]="role">{{ role }}</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="search-container">
+    <input type="text" placeholder="Search by Name, Email, or Phone" [(ngModel)]="searchTerm"
+      (input)="applyFilters()" />
+  </div>
+</div>
+
+<div class="table-container">
+  <table>
+    <thead>
+      <tr>
+        <th>ID
+          <button (click)="toggleSort('id')">↑↓</button>
+        </th>
+        <th>Name
+          <button (click)="toggleSort('name')">↑↓</button>
+        </th>
+        <th>Email
+          <button (click)="toggleSort('email')">↑↓</button>
+        </th>
+        <th>Phone
+          <button (click)="toggleSort('phone')">↑↓</button>
+        </th>
+        <th>Department
+          <button (click)="toggleSort('department')">↑↓</button>
+        </th>
+        <th>Role
+          <button (click)="toggleSort('role')">↑↓</button>
+        </th>
+        <th>Date Joined
+          <button (click)="toggleSort('dateJoined')">↑↓</button>
+        </th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of paginatedUsers">
+        <td>{{ user.id }}</td>
+        <td>
+          <input [(ngModel)]="user.name" *ngIf="user.isEditing" />
+          <span *ngIf="!user.isEditing">{{ user.name }}</span>
+        </td>
+        <td>
+          <input [(ngModel)]="user.email" *ngIf="user.isEditing" />
+          <span *ngIf="!user.isEditing">{{ user.email }}</span>
+        </td>
+        <td>
+          <input [(ngModel)]="user.phone" *ngIf="user.isEditing" />
+          <span *ngIf="!user.isEditing">{{ user.phone }}</span>
+        </td>
+        <td>
+          <input [(ngModel)]="user.department" *ngIf="user.isEditing" />
+          <span *ngIf="!user.isEditing">{{ user.department }}</span>
+        </td>
+        <td>
+          <input [(ngModel)]="user.role" *ngIf="user.isEditing" />
+          <span *ngIf="!user.isEditing">{{ user.role }}</span>
+        </td>
+        <td>
+          <input type="date" [(ngModel)]="user.dateJoined" *ngIf="user.isEditing" />
+          <span *ngIf="!user.isEditing">{{ user.dateJoined }}</span>
+        </td>
+
+        <td>
+          <button [ngClass]="{ 'edit': !user.isEditing, 'save': user.isEditing }" (click)="editUser(user)">
+            {{ user.isEditing ? 'Save' : 'Edit' }}
+          </button>
+          <button class="delete" (click)="deleteUser(user)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button (click)="exportToCSV()">Export Current Page to CSV</button>
+  <button (click)="exportToJSON()" class="export-json">Export Updated JSON</button>
+
+  <div class="pagination">
+    <button (click)="previousPage()" [disabled]="currentPage === 1">Previous</button>
+    <span>Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="nextPage()" [disabled]="currentPage === totalPages">Next</button>
+  </div>
+
+  <form #userForm="ngForm" (ngSubmit)="addUser()" novalidate>
+    <input type="text" placeholder="Name" [(ngModel)]="newUser.name" name="name" required #name="ngModel" />
+
+    <input type="email" placeholder="Email" [(ngModel)]="newUser.email" name="email" required #email="ngModel" />
+
+    <input type="text" placeholder="Phone" [(ngModel)]="newUser.phone" name="phone" required #phone="ngModel" />
+
+    <input type="text" placeholder="Department" [(ngModel)]="newUser.department" name="department" required
+      #department="ngModel" />
+
+    <input type="text" placeholder="Role" [(ngModel)]="newUser.role" name="role" required #role="ngModel" />
+
+    <input type="date" placeholder="Date Joined" [(ngModel)]="newUser.dateJoined" name="dateJoined" required
+      #dateJoined="ngModel" />
+
+    <button class="add-user" type="submit">Add User</button>
+  </form>
+</div>

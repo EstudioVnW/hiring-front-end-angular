@@ -29,8 +29,9 @@
               "src/favicon.ico",
               "src/assets"
             ],
-            "styles": [
-              "src/styles.sass"
+            "styles": [ 
+              "src/styles.sass",
+              "src/styles/variables.sass"
             ],
             "scripts": []
           },
@@ -93,6 +94,7 @@
               "src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.sass"
             ],
             "scripts": []
