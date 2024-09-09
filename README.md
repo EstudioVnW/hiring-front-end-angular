@@ -1,151 +1,68 @@
+# Processo Seletivo Front-End Angular - Vai na Web
 
-## Objetivo
-Desenvolva uma tabela que carrega dados de um JSON. A tabela deve permitir a edição, adição e exclusão de linhas. Os dados modificados devem ser refletidos no JSON local.
-
-## Como começar
-Dar um fork no projeto, clonar o repositório em sua máquina local e criar um branch novo para o seu código.
+Este projeto é uma aplicação web de gerenciamento de usuários desenvolvida com Angular. Ele permite que os usuários adicionem, editem, excluam e filtrem dados de usuários, além de exportar os dados para arquivos CSV e JSON.
 
 
-## Regras de negócio
-•	Novos registros devem conter todos os campos obrigatórios (name, email, phone, department, role, dateJoined).
+## Como utilizar a aplicação
+Ao entrar no aplicativo, você consegue ver a lista de usuários existentes, ao paginar, ele carrega mais dados dos próximos usuários.
 
-•	O campo id deve ser gerado automaticamente ao adicionar um novo registro.
+![Screenshot do Projeto](processoSeletivo/assets/images/foto1.png)
 
-•	Qualquer campo de um registro existente pode ser editado, exceto o id.
+## Filtro
+Ao digitar o nome, e-mail ou telefone do usuário desejado, a lista atualiza com os usuários que derem match com sua pesquisa.
 
-•	Um registro pode ser excluído apenas se o usuário confirmar a ação (ex: através de um modal de confirmação).
+![Screenshot do Projeto](processoSeletivo/assets/images/foto3.png)
 
-•	A tabela deve permitir filtrar por department e role.
+Ao selecionar o departamento, você recebe a lista de usuários do tipo selecionado.
 
-•	A ordenação pode ser feita por qualquer campo, em ordem crescente ou decrescente.
+![Screenshot do Projeto](processoSeletivo/assets/images/foto4.png)
 
-•	A tabela deve suportar paginação, exibindo no máximo 5 registros por página.
+## Exportação por CSV
+Ao clicar no botão Export Current Page to CSV, exporta a página que esta aberta para o formato CSV.
 
-•	O usuário deve poder exportar os registros visíveis em um arquivo CSV.
+![Screenshot do Projeto](processoSeletivo/assets/images/foto2.png)
 
-•	O CSV deve incluir apenas os registros da página atual se a paginação estiver ativa.
+## Requisitos de Sistema
 
-•	O sistema deve permitir a busca de registros pelo name, email, ou phone.
+Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas na sua máquina:
 
+- **Node.js**: Versão 16 ou superior
+- **Angular CLI**: Versão 15 ou superior
 
-## Referências
-•	JSON de referência:
+### Versão de Node Recomendada:
 
-```
-{
-  "data": [
-    {
-      "id": 1,
-      "name": "John Doe",
-      "email": "john.doe@example.com",
-      "phone": "+1 555-555-5555",
-      "department": "Sales",
-      "role": "Sales Manager",
-      "dateJoined": "2022-01-15"
-    },
-    {
-      "id": 2,
-      "name": "Jane Smith",
-      "email": "jane.smith@example.com",
-      "phone": "+1 555-123-4567",
-      "department": "Engineering",
-      "role": "Software Engineer",
-      "dateJoined": "2023-03-22"
-    },
-    {
-      "id": 3,
-      "name": "Michael Brown",
-      "email": "michael.brown@example.com",
-      "phone": "+1 555-987-6543",
-      "department": "Marketing",
-      "role": "Marketing Coordinator",
-      "dateJoined": "2021-07-30"
-    },
-    {
-      "id": 4,
-      "name": "Emily Davis",
-      "email": "emily.davis@example.com",
-      "phone": "+1 555-654-3210",
-      "department": "Human Resources",
-      "role": "HR Specialist",
-      "dateJoined": "2020-11-05"
-    },
-    {
-      "id": 5,
-      "name": "William Johnson",
-      "email": "william.johnson@example.com",
-      "phone": "+1 555-321-4321",
-      "department": "Finance",
-      "role": "Financial Analyst",
-      "dateJoined": "2019-02-19"
-    },
-    {
-      "id": 6,
-      "name": "Olivia Taylor",
-      "email": "olivia.taylor@example.com",
-      "phone": "+1 555-789-1234",
-      "department": "Customer Support",
-      "role": "Support Specialist",
-      "dateJoined": "2021-05-18"
-    },
-    {
-      "id": 7,
-      "name": "James Wilson",
-      "email": "james.wilson@example.com",
-      "phone": "+1 555-456-7890",
-      "department": "IT",
-      "role": "System Administrator",
-      "dateJoined": "2022-09-12"
-    },
-    {
-      "id": 8,
-      "name": "Sophia Martinez",
-      "email": "sophia.martinez@example.com",
-      "phone": "+1 555-654-9876",
-      "department": "Legal",
-      "role": "Legal Advisor",
-      "dateJoined": "2020-02-24"
-    },
-    {
-      "id": 9,
-      "name": "David Lee",
-      "email": "david.lee@example.com",
-      "phone": "+1 555-321-8765",
-      "department": "Operations",
-      "role": "Operations Manager",
-      "dateJoined": "2018-08-03"
-    },
-    {
-      "id": 10,
-      "name": "Ava White",
-      "email": "ava.white@example.com",
-      "phone": "+1 555-654-4321",
-      "department": "Product",
-      "role": "Product Manager",
-      "dateJoined": "2023-01-10"
-    }
-  ]
+- Node: `16.x.x`
+
+### Engines:
+
+No arquivo `package.json`, assegure-se de que a versão de engines seja compatível:
+
+```json
+"engines": {
+  "node": ">=16.0.0",
+  "npm": ">=6.0.0"
 }
 ```
 
+## Acessar o projeto online
+O projeto está rodando no servidor do Vercel. Você pode acessá-lo no link:
 
-## Observações
-1. Utilizar Angular na versão 15.
-2. Utilização de typescript.
-3. Design de livre escolha.
+[seletivoVNW](https://processo-seletivo-seven.vercel.app)
+
+## Como clonar o projeto e rodar localmente
+```bash
+git clone https://github.com/ferbortoloto/hiring-front-end-angular.git
+```
+
+## Instalar as dependências
+Entre na pasta do projeto e execute o comando
+```bash
+npm install
+```
+
+## Rodar projeto
+```bash
+ng serve
+```
 
 
-## Requisitos Técnicos para a entrega do teste
-
-•	Utilizar SASS
-
-•	O projeto deve ter uma documentação em readme ensinando a: 
-1. instalar o projeto na máquina (engines, versão de node, qual gerenciador de pacote usar)
-2. instalar as dependências do projeto
-3. rodar o ambiente de desenvolvimento
-4. rodar a build de deploy da aplicação.
-
-•	Hospedar o projeto em um servidor (Heroku, Vercel, Netlify)
-
-
-Boa sorte!
