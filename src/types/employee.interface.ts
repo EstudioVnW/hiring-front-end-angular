@@ -6,4 +6,5 @@ export interface Employee {
   department: string;
   role: string;
   dateJoined: string;
+  [key: string]: any; 
 }
