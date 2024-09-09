@@ -83,4 +83,4 @@ Para criar uma build de produção do projeto, execute o comando:
 
 O projeto está hospedado no seguinte link:
 
-[Link da Hospedagem](https://example.com) 
+[Link da Hospedagem](https://hiring-front-end-angular-nu.vercel.app) 
