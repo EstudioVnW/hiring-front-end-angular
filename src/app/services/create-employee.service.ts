@@ -15,6 +15,6 @@ export class CreateEmployeeService {
   }
 
   updateEmployee(employee: Employee): Observable<Employee> {
-    return this.http.put<Employee>(`${this.url}/employees/${employee.id}`, employee);
+    return of (employee);
   }
 }

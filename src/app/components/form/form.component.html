@@ -1,5 +1,5 @@
 
-<form [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="form-container">
+<form  [formGroup]="employeeForm" (ngSubmit)="onSubmit()" class="form-container">
   <div class="form-group">
     <div class="form-content">
 
@@ -81,5 +81,5 @@
   
 </form>
 <div class="form-footer">
-  <app-button [isSubmit]="true" text="Confirmar" (click)="onSubmit()"></app-button>
+  <app-button type="submit" (click)="onSubmit()" text="Confirmar" ></app-button>  
 </div>
