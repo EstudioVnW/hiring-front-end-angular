@@ -1,27 +1,68 @@
-# ProcessoSeletivo
+# Processo Seletivo Front-End Angular - Vai na Web
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+Este projeto é uma aplicação web de gerenciamento de usuários desenvolvida com Angular. Ele permite que os usuários adicionem, editem, excluam e filtrem dados de usuários, além de exportar os dados para arquivos CSV e JSON.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Como utilizar a aplicação
+Ao entrar no aplicativo, você consegue ver a lista de usuários existentes, ao paginar, ele carrega mais dados dos próximos usuários.
 
-## Code scaffolding
+![Screenshot do Projeto](./assets/images/foto1.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Filtro
+Ao digitar o nome, e-mail ou telefone do usuário desejado, a lista atualiza com os usuários que derem match com sua pesquisa.
 
-## Build
+![Screenshot do Projeto](./assets/images/foto3.png)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Ao selecionar o departamento, você recebe a lista de usuários do tipo selecionado.
 
-## Running unit tests
+![Screenshot do Projeto](./assets/images/foto4.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Exportação por CSV
+Ao clicar no botão Export Current Page to CSV, exporta a página que esta aberta para o formato CSV.
 
-## Running end-to-end tests
+![Screenshot do Projeto](./assets/images/foto2.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## Requisitos de Sistema
 
-## Further help
+Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas na sua máquina:
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+- **Node.js**: Versão 16 ou superior
+- **Angular CLI**: Versão 15 ou superior
+
+### Versão de Node Recomendada:
+
+- Node: `16.x.x`
+
+### Engines:
+
+No arquivo `package.json`, assegure-se de que a versão de engines seja compatível:
+
+```json
+"engines": {
+  "node": ">=16.0.0",
+  "npm": ">=6.0.0"
+}
+```
+
+## Acessar o projeto online
+O projeto está rodando no servidor do Vercel. Você pode acessá-lo no link:
+
+[seletivoVNW](https://processo-seletivo-seven.vercel.app)
+
+## Como clonar o projeto e rodar localmente
+```bash
+git clone https://github.com/ferbortoloto/hiring-front-end-angular.git
+```
+
+## Instalar as dependências
+Entre na pasta do projeto e execute o comando
+```bash
+npm install
+```
+
+## Rodar projeto
+```bash
+ng serve
+```
+
+
