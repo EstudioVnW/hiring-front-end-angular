@@ -9,6 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class AppComponent implements OnInit {
   title = 'processoSeletivo';
 
+  userToDelete: any = null;
+
   users: any[] = [];
   paginatedUsers: any[] = [];
   filteredUsers: any[] = [];
@@ -66,6 +68,10 @@ export class AppComponent implements OnInit {
   saveUsersToLocalStorage(): void {
     localStorage.setItem('users', JSON.stringify(this.users));
   }
+
+
+
+
 
   initializeFilters(): void {
     this.availableDepartments = [...new Set(this.users.map(user => user.department))];
@@ -160,7 +166,7 @@ export class AppComponent implements OnInit {
     if (!this.newUser.dateJoined) missingFields.push('Date Joined');
 
     if (missingFields.length > 0) {
-      alert(`Por favor, preencha os seguintes campos: ${missingFields.join(', ')}`);
+      alert(`Please complete the following fields: ${missingFields.join(', ')}`);
       return;
     }
 
@@ -174,8 +180,33 @@ export class AppComponent implements OnInit {
     this.saveUsersToLocalStorage();
     this.initializeFilters();
     this.applyFilters();
+    this.setupPagination();
     this.resetNewUser();
   }
+
+  openDeleteModal(user: any) {
+    this.userToDelete = user;
+  }
+
+  closeDeleteModal() {
+    this.userToDelete = null;
+  }
+
+  deleteUserConfirmed() {
+    const index = this.users.indexOf(this.userToDelete);
+    if (index > -1) {
+      this.users.splice(index, 1);
+      this.saveUsersToLocalStorage();
+      this.applyFilters();
+
+      if (this.paginatedUsers.length === 0 && this.currentPage > 1) {
+        this.currentPage--;
+      }
+      this.setupPagination();
+    }
+    this.closeDeleteModal();
+  }
+
 
   deleteUser(user: any): void {
     const index = this.users.indexOf(user);

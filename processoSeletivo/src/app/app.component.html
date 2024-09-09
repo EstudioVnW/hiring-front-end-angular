@@ -85,11 +85,15 @@
           <button [ngClass]="{ 'edit': !user.isEditing, 'save': user.isEditing }" (click)="editUser(user)">
             {{ user.isEditing ? 'Save' : 'Edit' }}
           </button>
-          <button class="delete" (click)="deleteUser(user)">Delete</button>
+          <button class="delete" (click)="openDeleteModal(user)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+
+  <app-delete-confirmation *ngIf="userToDelete" (confirm)="deleteUserConfirmed()" (cancelAction)="closeDeleteModal()">
+  </app-delete-confirmation>
+
 
   <button (click)="exportToCSV()">Export Current Page to CSV</button>
   <button (click)="exportToJSON()" class="export-json">Export Updated JSON</button>
