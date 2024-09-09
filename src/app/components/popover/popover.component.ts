@@ -1,51 +1,34 @@
-import { Component, HostListener, Input } from '@angular/core';
-import { Subscription } from 'rxjs';
-import { PopoverService } from 'src/app/services/popover.service';
+import { Component, EventEmitter, HostListener, Input, Output } from "@angular/core";
+import { Subscription } from "rxjs";
+import { PopoverService } from "src/app/services/popover.service";
+import { Employee } from "src/types/employee.interface";
 
 @Component({
   selector: 'app-popover',
   templateUrl: './popover.component.html',
   styleUrls: ['./popover.component.scss']
 })
-
 export class PopoverComponent {
-  @Input() popoverId: string = '';
+  @Input() popoverId: string = ''; 
   isPopoverOpen: boolean = false;
-
-  private subscription: Subscription = new Subscription();
-
-  constructor(private popoverService: PopoverService) {}
-
-  ngOnInit(): void {
-    this.subscription = this.popoverService.popoverMessage$.subscribe(
-      (popoverId) => {
-        if (this.popoverId !== popoverId){
-          this.isPopoverOpen = false;
-        }
-      }
-    )
-    
-  }
+  isModalOpen: boolean = false; 
+  @Output() deleteRequest = new EventEmitter<string>();
+  @Output() editRequest = new EventEmitter<Employee>(); 
+  @Input() employee: Employee = {} as Employee;
 
   togglePopover() { 
     this.isPopoverOpen = !this.isPopoverOpen;
-    if (this.isPopoverOpen) {
-      this.popoverService.openPopover(this.popoverId);
-    }
-    console.log(this.popoverId)
-  }
-
-  handleEdit() {
-    console.log('Action edit not implemented yet')
-    this.isPopoverOpen = false;
-    console.log(this.popoverId)
   }
 
   handleDelete() {
-    console.log('Action delete not implemented yet')
+    this.deleteRequest.emit(this.popoverId); 
     this.isPopoverOpen = false;
   }
 
+  handleEdit() {
+    this.editRequest.emit(this.employee);  
+    this.isPopoverOpen = false;
+  }
   @HostListener('document:click', ['$event'])
   closePopoverOnClickOutside(event: Event) {
     const target = event.target as HTMLElement;

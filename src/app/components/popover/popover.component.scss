@@ -50,9 +50,9 @@
   cursor: pointer;
   border: none;
   background-color: transparent;
+  transition: all 0.3s ease-in;
 
   &:hover {
-    color: $accent-100;
     background-color: $bg-200;
   }
 
