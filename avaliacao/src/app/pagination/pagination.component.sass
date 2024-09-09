@@ -1,0 +1,44 @@
+$primary-color: #1abc9c
+$background-color: #ffffff
+$border-color: #ddd
+$active-background-color: $primary-color
+$active-text-color: #ffffff
+$disabled-background-color: #f0f0f0
+$disabled-text-color: #bbb
+$text-color: #2c3e50
+$border-radius: 8px
+$padding: 8px 16px
+$margin: 0 5px
+
+.pagination
+  display: flex
+  justify-content: center
+  align-items: center
+  margin-top: 20px
+
+  button
+    background-color: $background-color
+    border: 1px solid $border-color
+    border-radius: $border-radius
+    padding: $padding
+    margin: $margin
+    cursor: pointer
+    font-size: 14px
+    color: $text-color
+    transition: background-color 0.3s ease, color 0.3s ease
+    z-index: 10
+
+    &:hover
+      background-color: darken($primary-color, 5%)
+      color: $active-text-color
+
+    &:disabled
+      background-color: $disabled-background-color
+      color: $disabled-text-color
+      cursor: not-allowed
+      border-color: $border-color
+
+  span
+    margin: 0 15px
+    font-size: 14px
+    color: $text-color
