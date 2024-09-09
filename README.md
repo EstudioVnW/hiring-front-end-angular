@@ -6,21 +6,21 @@ Este projeto é uma aplicação web de gerenciamento de usuários desenvolvida c
 ## Como utilizar a aplicação
 Ao entrar no aplicativo, você consegue ver a lista de usuários existentes, ao paginar, ele carrega mais dados dos próximos usuários.
 
-![Screenshot do Projeto](processoSeletivo/assets/images/foto1.png)
+![Screenshot do Projeto](./processoSeletivo/src/assets/images/foto1.png)
 
 ## Filtro
 Ao digitar o nome, e-mail ou telefone do usuário desejado, a lista atualiza com os usuários que derem match com sua pesquisa.
 
-![Screenshot do Projeto](processoSeletivo/assets/images/foto3.png)
+![Screenshot do Projeto](processoSeletivo/src/assets/images/foto3.png)
 
 Ao selecionar o departamento, você recebe a lista de usuários do tipo selecionado.
 
-![Screenshot do Projeto](processoSeletivo/assets/images/foto4.png)
+![Screenshot do Projeto](processoSeletivo/src/assets/images/foto4.png)
 
 ## Exportação por CSV
 Ao clicar no botão Export Current Page to CSV, exporta a página que esta aberta para o formato CSV.
 
-![Screenshot do Projeto](processoSeletivo/assets/images/foto2.png)
+![Screenshot do Projeto](processoSeletivo/src/assets/images/foto2.png)
 
 ## Requisitos de Sistema
 
