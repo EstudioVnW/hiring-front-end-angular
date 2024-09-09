@@ -52,10 +52,21 @@
   border-radius: 12px;
   width: 554px;
   height: 244px;
-
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
   background-color: $bg-100;
+  
+  animation: scale-fade-in 0.3s ease-in-out forwards;
+
+  @keyframes scale-fade-in {
+    from {
+      transform: scale(0.8); 
+      opacity: 0; 
+    }
+    to {
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
 }
 
 .modal-actions {

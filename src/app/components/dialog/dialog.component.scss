@@ -23,6 +23,18 @@
   width: 778px;
   max-height: 509px;
   position: relative;
+  animation: scale-fade-in 0.3s ease-in-out forwards;
+
+  @keyframes scale-fade-in {
+    from {
+      transform: scale(0.8); 
+      opacity: 0; 
+    }
+    to {
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
 }
 
 .dialog-header {
