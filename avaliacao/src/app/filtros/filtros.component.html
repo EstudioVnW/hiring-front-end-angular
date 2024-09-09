@@ -1,0 +1,12 @@
+<div class="filters">
+    <input [(ngModel)]="searchQuery" (ngModelChange)="onSearchChange()" placeholder="Buscar...">
+    <select [(ngModel)]="filterByDepartment" (ngModelChange)="onDepartmentChange()">
+      <option value="">Todos os Departamentos</option>
+      <option *ngFor="let department of departments">{{ department }}</option>
+    </select>
+    <select [(ngModel)]="filterByRole" (ngModelChange)="onRoleChange()">
+      <option value="">Todos os Cargos</option>
+      <option *ngFor="let role of roles">{{ role }}</option>
+    </select>
+  </div>
+  

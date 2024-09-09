@@ -1,0 +1,94 @@
+<header>
+  <h1>Desafio Técnico VnW Hiring</h1>
+</header>
+<div class="container">
+<div class="filters">
+<input type="text" [(ngModel)]="searchQuery" (ngModelChange)="filterData()" placeholder="Buscar por nome, email ou telefone">
+
+<select [(ngModel)]="filterByDepartment" (ngModelChange)="filterData()">
+  <option value="">Todos os Departamentos</option>
+  <option *ngFor="let department of departments" [value]="department">{{ department }}</option>
+</select>
+
+<select [(ngModel)]="filterByRole" (ngModelChange)="filterData()">
+  <option value="">Todos os Cargos</option>
+  <option *ngFor="let role of roles" [value]="role">{{ role }}</option>
+</select>
+</div>
+  <table>
+    <thead>
+      <tr>
+        <th (click)="sortData('name')">Nome</th>
+        <th (click)="sortData('email')">Email</th>
+        <th (click)="sortData('phone')">Telefone</th>
+        <th (click)="sortData('department')">Departamento</th>
+        <th (click)="sortData('role')">Cargo</th>
+        <th (click)="sortData('dateJoined')">Data de Entrada</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of paginatedData">
+        <td *ngIf="!item.isEditing">{{ item.name }}</td>
+        <td *ngIf="item.isEditing">
+          <input [(ngModel)]="item.name" />
+        </td>
+        
+        <td *ngIf="!item.isEditing">{{ item.email }}</td>
+        <td *ngIf="item.isEditing">
+          <input [(ngModel)]="item.email" />
+        </td>
+        
+        <td *ngIf="!item.isEditing">{{ item.phone }}</td>
+        <td *ngIf="item.isEditing">
+          <input [(ngModel)]="item.phone" />
+        </td>
+        
+        <td *ngIf="!item.isEditing">{{ item.department }}</td>
+        <td *ngIf="item.isEditing">
+          <input [(ngModel)]="item.department" />
+        </td>
+        
+        <td *ngIf="!item.isEditing">{{ item.role }}</td>
+        <td *ngIf="item.isEditing">
+          <input [(ngModel)]="item.role" />
+        </td>
+        
+        <td *ngIf="!item.isEditing">{{ item.dateJoined }}</td>
+        <td *ngIf="item.isEditing">
+          <input [(ngModel)]="item.dateJoined" />
+        </td>
+
+        <td>
+          <button (click)="editEntry(item)" *ngIf="!item.isEditing">Editar</button>
+          <button (click)="saveEntry(item)" *ngIf="item.isEditing">Salvar</button>
+          <button (click)="deleteEntry(item)">Excluir</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <app-pagination 
+    [currentPage]="currentPage" 
+    [totalPages]="totalPages" 
+    (pageChanged)="currentPage = $event; updatePagination()">
+  </app-pagination>
+  <br>
+  <div>
+    <button (click)="exportToExcel()">Exportar para XLXS em tabela</button>
+    <button (click)="exportToCSV()">Exportar para CSV simpls</button>
+  </div>
+
+  <div class="new-entry">
+    <h3>Adicionar Novo Registro</h3>
+    <input [(ngModel)]="newEntry.name" placeholder="Nome" />
+    <input [(ngModel)]="newEntry.email" placeholder="Email" />
+    <input [(ngModel)]="newEntry.phone" placeholder="Telefone" />
+    <input [(ngModel)]="newEntry.department" placeholder="Departamento" />
+    <input [(ngModel)]="newEntry.role" placeholder="Cargo" />
+    <input [(ngModel)]="newEntry.dateJoined" placeholder="Data de Entrada (YYYY-MM-DD)" />
+    <button (click)="addEntry()">Adicionar</button>
+  </div>
+</div>
+<footer>
+  <p>© Desenvolvido por Fabrício Souza</p>
+</footer>
