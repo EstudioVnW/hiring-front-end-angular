@@ -209,4 +209,39 @@ export class TableComponent implements OnInit {
   onDialogClose(): void {
     this.isDialogVisible = false;
   }
+
+  exportToCSV() {
+    const visibleEmployees = this.paginatedEmployees; 
+    const headers = ['ID', 'Name', 'Email', 'Phone', 'Department', 'Role', 'Date Joined'];
+  
+    
+    const csvRows = visibleEmployees.map(employee => [
+      employee.id,
+      employee.name,
+      employee.email,
+      employee.phone,
+      employee.department,
+      employee.role,
+      employee.dateJoined
+    ]);
+  
+    
+    const csvContent = [
+      headers.join(','),  
+      ...csvRows.map(row => row.join(','))  
+    ].join('\n'); 
+  
+    
+    const blob = new Blob([csvContent], { type: 'text/csv' });
+    const url = window.URL.createObjectURL(blob);
+  
+    
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'employees.csv';
+    a.click();
+  
+    
+    window.URL.revokeObjectURL(url);
+  }
 }

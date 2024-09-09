@@ -18,7 +18,7 @@
     <div class="table-actions">
       <app-button iconPath="../../../assets/images/svg/add.svg" text="Add Employee"
         (click)="openFormForNewEmployee()"></app-button>
-      <app-button iconPath="../../../assets/images/svg/export.svg" text="Export Employee" [isDisabled]="paginatedEmployees.length === 0"></app-button>
+      <app-button iconPath="../../../assets/images/svg/export.svg" text="Export Employee" [isDisabled]="paginatedEmployees.length === 0" (click)="exportToCSV()"></app-button>
     </div>
 
   </header>
