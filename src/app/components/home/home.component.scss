@@ -9,3 +9,12 @@
   align-items: center;
   padding-top: 10rem;
 }
+
+@media (max-width: 768px) {
+  .home-container {
+    padding-top: 0rem;
+    height: auto;
+    width: 100vw;
+    align-items: initial;
+  }
+}
