@@ -1,0 +1,111 @@
+<div class="table-container">
+  <header class="table-header">
+    <div class="table-content">
+      <input class="table-search" type="text" placeholder="Search by name, email or phone..." [(ngModel)]="searchTerm" (input)="filterData()" />
+
+      <select class="select-filter" [(ngModel)]="selectedDepartment" (change)="filterData()">
+        <option value="">All Departments</option>
+        <option *ngFor="let department of departments" [value]="department">{{department}}</option>
+      </select>
+
+      <select class="select-filter" [(ngModel)]="selectedRole" (change)="filterData()">
+        <option value="">All Roles</option>
+
+        <option *ngFor="let role of roles" [value]="role">{{role}}</option>
+      </select>
+    </div>
+
+    <div class="table-actions">
+      <app-button iconPath="../../../assets/images/svg/add.svg" text="Add Employee"
+        (click)="openFormForNewEmployee()"></app-button>
+      <app-button iconPath="../../../assets/images/svg/export.svg" text="Export Employee" [isDisabled]="paginatedEmployees.length === 0" (click)="exportToCSV()"></app-button>
+    </div>
+
+  </header>
+
+  <table>
+    <thead>
+      <th  (click)="setSort('id')">
+        ID
+        <span>
+      {{ sortField === 'id' || !sortField ? (sortDirection === 'asc' ? '↑' : '↓') : '↑' }}</span>
+      </th>
+
+      <th (click)="setSort('name')">
+        Name
+        <span>{{ sortField === 'name' ? (sortDirection === 'asc' ? '↑' : '↓') : '↑'}}</span>
+      </th>
+
+      <th (click)="setSort('email')">
+        Email
+        <span>{{ sortField === 'email' ? (sortDirection === 'asc' ? '↑' : '↓') : '↑' }}</span>
+      </th>
+
+      <th (click)="setSort('phone')">
+        Phone
+        <span >{{ sortField === 'phone' ? (sortDirection === 'asc' ? '↑' : '↓') : '↑' }}</span>
+      </th>
+
+      <th (click)="setSort('department')">
+        Department
+        <span>{{ sortField === 'department' ? (sortDirection === 'asc' ? '↑' : '↓') : '↑' }}</span>
+      </th>
+
+      <th (click)="setSort('role')">
+        Role
+        <span>{{ sortField === 'role' ? (sortDirection === 'asc' ? '↑' : '↓') : '↑' }}</span>
+      </th>
+
+      <th (click)="setSort('dateJoined')">
+        Date Joined
+        <span>{{ sortField === 'dateJoined' ? (sortDirection === 'asc' ? '↑' : '↓') : '↑' }}</span>
+      </th>
+
+      <th>Actions</th>
+    </thead>
+    <tbody *ngIf="filteredEmployees.length > 0; else noResults">
+      <tr *ngFor="let employee of paginatedEmployees">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.phone}}</td>
+        <td>{{employee.department}}</td>
+        <td>{{employee.role}}</td>
+        <td>{{employee.dateJoined}}</td>
+        <td class="actions">
+          <app-popover [employee]="employee" popoverId="{{employee.id}}" (editRequest)="openFormForEdit($event)"
+            (deleteRequest)="onDeleteRequest($event)">
+          </app-popover>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination-controls">
+    <span>{{currentPage}} of {{totalPages}} </span>
+    <div class="pagination-buttons">
+      <button (click)="changePage(currentPage - 1)" [disabled]="currentPage === 1" class="pagination-btn"><img
+          src="../../../assets/images/svg/arrow-left.svg" alt="arrow-left icon"></button>
+      <span> {{currentPage}} / {{totalPages}}</span>
+      <button (click)="changePage(currentPage + 1)" [disabled]="currentPage === totalPages" class="pagination-btn"><img
+          src="../../../assets/images/svg/arrow-right.svg" alt="arrow-right icon"></button>
+    </div>
+  </div>
+
+  <ng-template #noResults class="no-results">
+    <p class="text-no-results">No employees found</p>
+  </ng-template>
+</div>
+
+<app-dialog *ngIf="isFormOpen" [isVisible]="isDialogVisible" (closeDialog)="clearForm()"
+  title=" {{selectedEmployee ? 'Edit employee' : 'Register employee'}}"
+  subtitle="Fill out the form below to {{selectedEmployee ? 'edit the employee' : 'add an employee'}} ">
+
+  <app-form (save)="onEmployeeUpdated($event)" [employeeToEdit]="selectedEmployee" (closeDialog)="onDialogClose()"
+    (employeeAdded)="onEmployeeAdded($event)">
+  </app-form>
+</app-dialog>
+
+<app-modal (close)="closeModal()" [isVisible]="isModalVisible" (confirm)="confirmDelete() "
+  (confirmDelete)="confirmDelete()">
+</app-modal>

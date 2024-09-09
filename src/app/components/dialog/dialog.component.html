@@ -1,0 +1,18 @@
+<dialog open class="dialog-overlay" *ngIf="isVisible">
+  <div class="dialog-content">
+    <div class="dialog-header">
+      <div class="dialog-icons">
+        <img src="../../../assets/images/svg/add-employee.svg" alt="add employee icon">
+        <button class="dialog-close" (click)="onClose()"><img src="../../../assets/images/svg/close.svg"
+            alt="close dialog icon"></button>
+      </div>
+
+      <h2 class="dialog-title">{{title}}</h2>
+      <span class="dialog-subtitle">{{subtitle}}</span>
+
+    </div>
+    <div class="dialog-body">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</dialog>

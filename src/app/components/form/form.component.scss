@@ -1,0 +1,80 @@
+@import "../../../colors.scss";
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 50%;
+}
+
+.form-content {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+
+  width: 100%;
+
+  .form-required {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 5px;
+  }
+
+  strong {
+    color: $danger-100;
+  }
+
+  label {
+    font-size: 14px;
+    color: $text-300;
+    font-weight: 500;
+  }
+
+  input,
+  select {
+    color: $text-100;
+    border: none;
+    border-radius: 4px;
+    padding: 8px;
+    height: 40px;
+    background-color: $bg-100;
+    border: 1px solid $border-100;
+    transition: all 0.3s ease-in;
+  }
+
+  input:focus,
+  select:focus {
+    outline: none;
+    border: 1px solid $bg-200;
+  }
+
+  option {
+    background-color: $bg-100;
+    font-size: 12px;
+    color: $text-100;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  small {
+    padding: 0;
+    font-size: 12px;
+    color: $danger-100;
+  }
+}
+.form-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 5px;
+
+  margin-top: 20px;
+  text-align: right;
+}

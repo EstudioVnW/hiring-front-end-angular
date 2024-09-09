@@ -1,0 +1,122 @@
+@import "../../../colors.scss";
+
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin-top: 2rem;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: right;
+  gap: 10px;
+
+  width: 430px;
+  padding-top: 10px;
+  margin-bottom: 15px;
+
+  h2 {
+    color: $text-200;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24px;
+    margin: 0;
+  }
+}
+
+.modal-text {
+  color: $text-100;
+  font-size: 14;
+  text-align: left;
+}
+
+.modal-content {
+  position: relative;
+  background: #fff;
+  padding: 20px;
+  border: 1px solid $border-100;
+  border-radius: 12px;
+  width: 554px;
+  height: 244px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: $bg-100;
+  
+  animation: scale-fade-in 0.3s ease-in-out forwards;
+
+  @keyframes scale-fade-in {
+    from {
+      transform: scale(0.8); 
+      opacity: 0; 
+    }
+    to {
+      transform: scale(1); 
+      opacity: 1; 
+    }
+  }
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+.delete-btn {
+  border: none;
+  width: 87px;
+  height: 40px;
+  color: $bg-100;
+  background-color: $danger-100;
+
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.cancel-btn {
+  border: none;
+  border: 1px solid $border-100;
+  width: 87px;
+  height: 40px;
+  color: $text-200;
+  background-color: $bg-100;
+
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 14px;
+
+  cursor: pointer;
+  transition: all 0.3s ease-in;
+}
+
+.cancel-btn:hover {
+  background-color: $primary-100;
+}
+
+.delete-btn:hover {
+  background-color: $danger-200;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+}

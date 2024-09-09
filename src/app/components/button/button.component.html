@@ -1,0 +1,11 @@
+<button  
+  class="btn" [ngStyle]="{ 'background-color': isDanger ? '#D92D20' : ''}" 
+  (click)="onClick()" 
+  [attr.type]="isSubmit ? 'submit' : 'button'"
+  [disabled]="isDisabled"
+  >
+  <ng-container *ngIf="iconPath" >
+    <img class="icon" [src]="iconPath" alt="icon add"/>
+  </ng-container>
+  {{ text }}
+</button>
