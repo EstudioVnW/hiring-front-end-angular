@@ -11,6 +11,7 @@ import { DialogComponent } from './components/dialog/dialog.component';
 import { FormComponent } from './components/form/form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './components/home/home.component';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,10 @@ import { HomeComponent } from './components/home/home.component';
     PopoverComponent,
     DialogComponent,
     FormComponent,
-    HomeComponent
+    HomeComponent,
+    ModalComponent,
+    
+    
   ],
   imports: [
     BrowserModule,
