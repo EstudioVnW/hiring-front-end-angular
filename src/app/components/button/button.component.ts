@@ -12,7 +12,7 @@ export class ButtonComponent {
   @Input() isSubmit: boolean = false;
   @Input() isExport: boolean = false;
   @Input() isDanger: boolean = false;
-
+  @Input() isDisabled: boolean = false;
   @Output() clickEvent = new EventEmitter<void>();
 
   
