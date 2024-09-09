@@ -54,17 +54,18 @@ export class FormComponent implements OnInit {
   }
 
   onSubmit() {
-    if (this.employeeForm.valid) {
-      // Verifica se está em modo de edição ou cadastro
-      if (this.employeeToEdit) {
-        this.editEmployee();
-      } else {
-        this.createEmployee();
-      }
+    if (this.employeeForm.invalid) {
+      this.employeeForm.markAllAsTouched();
+      return;
+    }
+  
+    if (this.employeeToEdit) {
+      this.editEmployee();
     } else {
-      console.log('Formulário inválido:', this.employeeForm);
+      this.createEmployee();
     }
   }
+  
   
   createEmployee() {
     if (this.employeeForm.valid) {
