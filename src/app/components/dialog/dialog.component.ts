@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-
 @Component({
   selector: 'app-dialog',
   templateUrl: './dialog.component.html',
@@ -15,11 +14,9 @@ export class DialogComponent {
   onClose(): void {
     this.isVisible = false;
     this.closeDialog.emit(); 
-    console.log('Diálogo fechado');
   }
 
   onConfirm(): void {
-    console.log('Ação confirmada');
     this.onClose();
   }
 }
